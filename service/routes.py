@@ -58,13 +58,6 @@ def create_accounts():
     )
 
 ######################################################################
-# LIST ALL ACCOUNTS
-######################################################################
-
-# ... place you code here to LIST accounts ...
-
-
-######################################################################
 # READ AN ACCOUNT
 ######################################################################
 @app.route("/accounts/<int:account_id>", methods=["GET"])
@@ -81,13 +74,22 @@ def get_accounts(account_id):
 
     return account.serialize(), status.HTTP_200_OK
 
-
 ######################################################################
-# DELETE AN ACCOUNT
+# LIST ALL ACCOUNTS
 ######################################################################
+@app.route("/accounts", methods=["GET"])
+def list_accounts():
+    """
+    List all Accounts
+    This endpoint will list all Accounts
+    """
+    app.logger.info("Request to list Accounts")
 
-# ... place you code here to DELETE an account ...
+    accounts = Account.all()
+    account_list = [account.serialize() for account in accounts]
 
+    app.logger.info("Returning [%s] accounts", len(account_list))
+    return jsonify(account_list), status.HTTP_200_OK
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
