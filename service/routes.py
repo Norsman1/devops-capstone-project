@@ -58,13 +58,6 @@ def create_accounts():
     )
 
 ######################################################################
-# LIST ALL ACCOUNTS
-######################################################################
-
-# ... place you code here to LIST accounts ...
-
-
-######################################################################
 # READ AN ACCOUNT
 ######################################################################
 @app.route("/accounts/<int:account_id>", methods=["GET"])
@@ -80,14 +73,6 @@ def get_accounts(account_id):
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
 
     return account.serialize(), status.HTTP_200_OK
-
-
-######################################################################
-# DELETE AN ACCOUNT
-######################################################################
-
-# ... place you code here to DELETE an account ...
-
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
