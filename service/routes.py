@@ -38,11 +38,13 @@ def index():
 ######################################################################
 # CREATE A NEW ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts", methods=["POST"])
 def create_accounts():
     """
-    Creates an Account
-    This endpoint will create an Account based the data in the body that is posted
+        Creates an Account
+        This endpoint will create an Account based the data in the body that is posted  
     """
     app.logger.info("Request to create an Account")
     check_content_type("application/json")
@@ -60,11 +62,13 @@ def create_accounts():
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
+
+
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def get_accounts(account_id):
     """
-    Reads an Account
-    This endpoint will read an Account based the account_id that is requested
+        Reads an Account
+        This endpoint will read an Account based the account_id that is requested
     """
     app.logger.info("Request to read an Account with id: %s", account_id)
 
@@ -77,11 +81,13 @@ def get_accounts(account_id):
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
+
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """
-    List all Accounts
-    This endpoint will list all Accounts
+        List all Accounts
+        This endpoint will list all Accounts
     """
     app.logger.info("Request to list Accounts")
 
@@ -104,8 +110,9 @@ def check_content_type(media_type):
     app.logger.error("Invalid Content-Type: %s", content_type)
     abort(
         status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
-        f"Content-Type must be {media_type}",
+        f"Content-Type must be {media_type}", ""
     )
+
 
 def test_get_account_not_found(self):
     """It should not Read an Account that is not found"""
